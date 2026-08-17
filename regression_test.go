@@ -36,3 +36,24 @@ func TestScenario09(t *testing.T) {
 		t.Fatalf("Scenario09 = %d, want %d", got, want)
 	}
 }
+
+func TestScenario10(t *testing.T) {
+	in := Scenario10Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario10(in), in.J+in.C; got != want {
+		t.Fatalf("Scenario10 = %d, want %d", got, want)
+	}
+}
+
+func TestScenario11(t *testing.T) {
+	in := Scenario11Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario11(in), in.K+in.B; got != want {
+		t.Fatalf("Scenario11 = %d, want %d", got, want)
+	}
+}
+
+func TestScenario12(t *testing.T) {
+	in := Scenario12Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario12(in), in.L+in.A; got != want {
+		t.Fatalf("Scenario12 = %d, want %d", got, want)
+	}
+}
