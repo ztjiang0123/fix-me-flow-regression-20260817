@@ -7,7 +7,14 @@ func Scenario02(a, b, c, d, e, f, g, h, i, j, k, l int) int { return b + k }
 func Scenario03(a, b, c, d, e, f, g, h, i, j, k, l int) int { return c + j }
 func Scenario04(a, b, c, d, e, f, g, h, i, j, k, l int) int { return d + i }
 func Scenario05(a, b, c, d, e, f, g, h, i, j, k, l int) int { return e + h }
-func Scenario06(a, b, c, d, e, f, g, h, i, j, k, l int) int { return f + g }
+
+// Scenario06Inputs groups the operands that travel together into Scenario06,
+// replacing a long positional parameter list with a single value type.
+type Scenario06Inputs struct {
+	A, B, C, D, E, F, G, H, I, J, K, L int
+}
+
+func Scenario06(in Scenario06Inputs) int                    { return in.F + in.G }
 func Scenario07(a, b, c, d, e, f, g, h, i, j, k, l int) int { return g + f }
 func Scenario08(a, b, c, d, e, f, g, h, i, j, k, l int) int { return h + e }
 func Scenario09(a, b, c, d, e, f, g, h, i, j, k, l int) int { return i + d }
