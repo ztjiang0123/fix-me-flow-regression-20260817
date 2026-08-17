@@ -2,6 +2,34 @@ package regression
 
 import "testing"
 
+func TestScenario01(t *testing.T) {
+	in := Scenario01Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario01(in), in.A+in.L; got != want {
+		t.Fatalf("Scenario01 = %d, want %d", got, want)
+	}
+}
+
+func TestScenario02(t *testing.T) {
+	in := Scenario02Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario02(in), in.B+in.K; got != want {
+		t.Fatalf("Scenario02 = %d, want %d", got, want)
+	}
+}
+
+func TestScenario03(t *testing.T) {
+	in := Scenario03Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario03(in), in.C+in.J; got != want {
+		t.Fatalf("Scenario03 = %d, want %d", got, want)
+	}
+}
+
+func TestScenario04(t *testing.T) {
+	in := Scenario04Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
+	if got, want := Scenario04(in), in.D+in.I; got != want {
+		t.Fatalf("Scenario04 = %d, want %d", got, want)
+	}
+}
+
 func TestScenario05(t *testing.T) {
 	in := Scenario05Inputs{A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9, J: 10, K: 11, L: 12}
 	if got, want := Scenario05(in), in.E+in.H; got != want {

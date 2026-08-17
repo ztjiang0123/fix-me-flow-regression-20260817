@@ -1,11 +1,50 @@
 package regression
 
-// These deliberately over-parameterized functions provide deterministic
-// Code Analyzer fixtures for exercising Fix Me and Fix All workflows.
-func Scenario01(a, b, c, d, e, f, g, h, i, j, k, l int) int { return a + l }
-func Scenario02(a, b, c, d, e, f, g, h, i, j, k, l int) int { return b + k }
-func Scenario03(a, b, c, d, e, f, g, h, i, j, k, l int) int { return c + j }
-func Scenario04(a, b, c, d, e, f, g, h, i, j, k, l int) int { return d + i }
+// These deterministic functions provide Code Analyzer fixtures for exercising
+// Fix Me and Fix All workflows.
+
+// operands carries the twelve values that travel together through the early
+// scenarios. Grouping them into one value type replaces the long positional
+// parameter lists that Scenario01–Scenario04 previously accepted.
+type operands struct {
+	A, B, C, D, E, F, G, H, I, J, K, L int
+}
+
+// sumPair returns the sum of the two operands selected by pick. The early
+// scenarios differed only in which pair they added, so their shared body lives
+// here once instead of being copied per scenario.
+func sumPair(in operands, pick func(operands) (int, int)) int {
+	x, y := pick(in)
+	return x + y
+}
+
+// Scenario01Inputs groups the operands that travel together into Scenario01.
+type Scenario01Inputs = operands
+
+func Scenario01(in Scenario01Inputs) int {
+	return sumPair(in, func(o operands) (int, int) { return o.A, o.L })
+}
+
+// Scenario02Inputs groups the operands that travel together into Scenario02.
+type Scenario02Inputs = operands
+
+func Scenario02(in Scenario02Inputs) int {
+	return sumPair(in, func(o operands) (int, int) { return o.B, o.K })
+}
+
+// Scenario03Inputs groups the operands that travel together into Scenario03.
+type Scenario03Inputs = operands
+
+func Scenario03(in Scenario03Inputs) int {
+	return sumPair(in, func(o operands) (int, int) { return o.C, o.J })
+}
+
+// Scenario04Inputs groups the operands that travel together into Scenario04.
+type Scenario04Inputs = operands
+
+func Scenario04(in Scenario04Inputs) int {
+	return sumPair(in, func(o operands) (int, int) { return o.D, o.I })
+}
 
 // Scenario05Inputs groups the operands that travel together into Scenario05,
 // replacing a long positional parameter list with a single value type.
