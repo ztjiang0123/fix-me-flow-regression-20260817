@@ -45,7 +45,28 @@ type Scenario09Inputs struct {
 	A, B, C, D, E, F, G, H, I, J, K, L int
 }
 
-func Scenario09(in Scenario09Inputs) int                    { return in.I + in.D }
-func Scenario10(a, b, c, d, e, f, g, h, i, j, k, l int) int { return j + c }
-func Scenario11(a, b, c, d, e, f, g, h, i, j, k, l int) int { return k + b }
-func Scenario12(a, b, c, d, e, f, g, h, i, j, k, l int) int { return l + a }
+func Scenario09(in Scenario09Inputs) int { return in.I + in.D }
+
+// Scenario10Inputs groups the operands that travel together into Scenario10,
+// replacing a long positional parameter list with a single value type.
+type Scenario10Inputs struct {
+	A, B, C, D, E, F, G, H, I, J, K, L int
+}
+
+func Scenario10(in Scenario10Inputs) int { return in.J + in.C }
+
+// Scenario11Inputs groups the operands that travel together into Scenario11,
+// replacing a long positional parameter list with a single value type.
+type Scenario11Inputs struct {
+	A, B, C, D, E, F, G, H, I, J, K, L int
+}
+
+func Scenario11(in Scenario11Inputs) int { return in.K + in.B }
+
+// Scenario12Inputs groups the operands that travel together into Scenario12,
+// replacing a long positional parameter list with a single value type.
+type Scenario12Inputs struct {
+	A, B, C, D, E, F, G, H, I, J, K, L int
+}
+
+func Scenario12(in Scenario12Inputs) int { return in.L + in.A }
